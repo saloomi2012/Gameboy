@@ -19,5 +19,5 @@ if(SFML_FOUND)
     message(STATUS "SFML_VERSION: ${SFML_VERSION}")
 endif()
 
-add_executable(Gameboy main.cpp)
+add_executable(Gameboy main.cpp CPU.cpp CPU.h)
 target_link_libraries (Gameboy sfml-graphics sfml-window sfml-system sfml-audio)
