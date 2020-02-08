@@ -7,8 +7,14 @@
 
 #include <string>
 
+typedef unsigned char flag;
 typedef unsigned char byte;
 typedef unsigned short doubleByte;
+
+const flag ZEROflag = 0b10000000;
+const flag Nflag = 0b01000000;
+const flag Hflag = 0b00100000;
+const flag Cflag = 0b00010000;
 
 class CPU {
 
@@ -55,12 +61,24 @@ class CPU {
     doubleByte SP;
     doubleByte PC;
 
+    void setFlag(flag f);
+    void clearFlag(flag f);
+
+
 public:
     explicit CPU(std::string game);
 
 
+    void loop();
 
 
+    byte dec(byte regist);
+    byte flip(byte regist);
+    void write(doubleByte regist, byte value);
+
+    doubleByte nn(doubleByte PC);
+
+    void add(doubleByte& regist1, doubleByte regist2);
 };
 
 
